@@ -2,7 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import path from "path";
 import cors from 'cors';
-
+import bodyParser from 'body-parser';
 
 import paymentRoutes from "./routes/payment.routes.js";
 
@@ -17,6 +17,7 @@ app.use(cors({
 
 }));
 
+app.use(bodyParser.json());
 app.use(paymentRoutes);
 
 app.use(express.static(path.resolve("src/public")));

@@ -8,13 +8,15 @@ export const processPayment = async (req, res) => {
   try {
     
     const payment = new Payment(client);
+    
     payment.create({ body: req.body })
-    .then(()=>{
+    .then((result)=>{
    
-        res.json(result.body);
+        console.log(result);
+        res.json(result);
 
     })
-    .catch((error)=>{
+    .catch((error)=>{ 
         console.log(error);
     });
 
