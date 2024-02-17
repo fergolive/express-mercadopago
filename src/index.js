@@ -3,27 +3,23 @@ import morgan from "morgan";
 import path from "path";
 import cors from 'cors';
 import bodyParser from 'body-parser';
-
 import paymentRoutes from "./routes/payment.routes.js";
 
 const app = express();
+const port=process.env.PORT || 3000
 
 app.use(morgan("dev"));
-
 app.use(cors({
   origin: '*'//['http://localhost:4200', 'http://localhost:4201']  //origin: ['https://www.section.io', 'https://www.google.com/']   origin: '*'
   //info cors -->
   //https://www.section.io/engineering-education/how-to-use-cors-in-nodejs-with-express/
-
 }));
-
 app.use(bodyParser.json());
 app.use(paymentRoutes);
-
 app.use(express.static(path.resolve("src/public")));
 
-app.listen(3000);
-console.log("Server on port", 3000);
+app.listen(port);
+console.log("Server on port", port);
 
 
 
