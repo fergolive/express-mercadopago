@@ -1,5 +1,7 @@
 import { MercadoPagoConfig, Payment } from 'mercadopago';
 import { MERCADOPAGO_API_KEY } from "../config.js";
+import ytdl  from 'ytdl-core';
+
 
 export const processPayment = async (req, res) => {
 
